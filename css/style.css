@@ -134,3 +134,19 @@ button {
   font-size: 20px;
   margin-top: 15px;
 }
+
+/* ❤️ HEART RAIN EFFECT (YES PAGE) */
+.heart-rain {
+  position: fixed;
+  top: -10px;
+  z-index: 9999;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
