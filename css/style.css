@@ -20,7 +20,7 @@ body {
 /* Corner Elements */
 .corner {
   position: absolute;
-  width: 90px;
+  width: 190px;
   animation: float 4s ease-in-out infinite;
 }
 
