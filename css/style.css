@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive;
+}
+
+body {
+  height: 100vh;
+  background: url("../assets/images/bg.png") center/cover no-repeat;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Fade on load */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Corner Elements */
+.corner {
+  position: absolute;
+  width: 90px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.heart { top: 20px; left: 20px; }
+.date { top: 20px; right: 20px; }
+.teddy { bottom: 20px; left: 20px; }
+.plane { bottom: 20px; right: 20px; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Center Content */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.couple {
+  width: 280px;
+  animation: zoom 1.5s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.7); }
+  to { transform: scale(1); }
+}
+
+.hey {
+  color: #e91e63;
+  margin-top: 10px;
+}
+
+.question {
+  color: #9c27b0;
+  margin: 10px 0 20px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4081;
+  color: white;
+}
+
+.yes:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff4081;
+}
+
+.no {
+  background: #ccc;
+}
+
+.no:hover {
+  transform: translateX(10px);
+}
+
+/* YES & NO Pages */
+.yes-page, .no-page {
+  background: linear-gradient(#ffe6f0, #fff);
+}
+
+.big-love {
+  color: #e91e63;
+  font-size: 48px;
+}
+
+.romantic-text {
+  font-size: 20px;
+  margin-top: 15px;
+}
