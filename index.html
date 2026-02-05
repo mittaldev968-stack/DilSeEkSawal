@@ -8,7 +8,7 @@
 <body>
 
 <!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
   <source src="assets/music/love.mp3" type="audio/mpeg">
 </audio>
 
@@ -31,5 +31,16 @@
 </div>
 
 <script src="js/script.js"></script>
+    <script>
+  const music = document.getElementById("bgMusic");
+
+  function startMusic() {
+    music.play();
+    document.removeEventListener("click", startMusic);
+  }
+
+  document.addEventListener("click", startMusic);
+</script>
+
 </body>
 </html>
