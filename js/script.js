@@ -1,21 +1,11 @@
-function goYes() {
-  document.body.style.opacity = "0";
-  setTimeout(() => {
-    window.location.href = "yes.html";
-  }, 600);
-}
-
-/* ----------------------------
-   Cute NO → YES Interaction
----------------------------- */
-
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const wrapper = document.getElementById("buttonWrapper");
 
 let scale = 1;
 let clickCount = 0;
 
-const noMessages = [
+const messages = [
   "NO THANK YOU",
   "Are you sure? 🥺",
   "Really sure? 😢",
@@ -25,22 +15,38 @@ const noMessages = [
   "Just press YES 💖"
 ];
 
-if (noBtn) {
-  noBtn.addEventListener("click", () => {
-    clickCount++;
+yesBtn.addEventListener("click", () => {
+  document.body.style.opacity = "0";
+  setTimeout(() => {
+    window.location.href = "yes.html";
+  }, 600);
+});
 
-    // Change NO text smoothly
-    if (clickCount < noMessages.length) {
-      noBtn.textContent = noMessages[clickCount];
-    } else {
-      noBtn.textContent = "Okay fine 😌";
-    }
+noBtn.addEventListener("click", () => {
+  clickCount++;
 
-    // Grow YES button
-    scale += 0.15;
-    yesBtn.style.transform = `scale(${scale})`;
+  if (clickCount < messages.length) {
+    noBtn.textContent = messages[clickCount];
+  }
 
-    // Add soft glow
-    yesBtn.style.boxShadow = "0 0 25px rgba(255, 64, 129, 0.8)";
-  });
-}
+  // YES grows smoothly
+  scale += 0.18;
+  yesBtn.style.transform = `scale(${scale})`;
+
+  // Add glow
+  yesBtn.style.boxShadow = "0 0 30px rgba(255, 64, 129, 0.9)";
+
+  // Move buttons vertically after 3 clicks
+  if (clickCount >= 3) {
+    wrapper.style.flexDirection = "column";
+    wrapper.style.gap = "20px";
+  }
+
+  // FINAL STAGE – FULL SCREEN
+  if (clickCount >= messages.length - 1) {
+    setTimeout(() => {
+      yesBtn.classList.add("fullscreen");
+      yesBtn.textContent = "💖 YOU HAVE NO ESCAPE 💖";
+    }, 400);
+  }
+});
