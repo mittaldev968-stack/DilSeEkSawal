@@ -5,9 +5,10 @@
   <title>Dil Se Ek Sawal ❤️</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-<!-- 🎵 Background Music -->
+<!-- Background Music -->
 <audio id="bgMusic" loop>
   <source src="assets/music/love.mp3" type="audio/mpeg">
 </audio>
@@ -25,25 +26,25 @@
   <h1 class="hey">Hey there,</h1>
   <h2 class="question">Will you be my Valentine?</h2>
 
-  <div class="buttons" id="buttonWrapper">
-    <button class="yes" id="yesBtn">YES OF COURSE</button>
-    <button class="no" id="noBtn">NO THANK YOU</button>
+  <div class="buttons">
+    <button class="yes" onclick="goYes()">YES OF COURSE</button>
+    <button class="no" onclick="goNo()">NO THANK YOU</button>
   </div>
 </div>
-
-<!-- Floating Hearts Container -->
-<div id="heartContainer"></div>
 
 <script src="js/script.js"></script>
 
 <script>
   const music = document.getElementById("bgMusic");
+
   function startMusic() {
     music.play();
     document.removeEventListener("click", startMusic);
   }
+
   document.addEventListener("click", startMusic);
 </script>
 
 </body>
 </html>
+
