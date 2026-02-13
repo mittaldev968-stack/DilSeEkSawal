@@ -2,16 +2,17 @@
   margin: 0;
   padding: 0;
   font-family: "Comic Sans MS", cursive;
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
   background: url("../assets/images/bg.png") center/cover no-repeat;
   overflow: hidden;
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 1.2s ease;
 }
 
-/* Fade on load */
+/* Fade */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -20,40 +21,17 @@ body {
 /* Corner Elements */
 .corner {
   position: absolute;
-  height: auto;
-  max-width: none;
   animation: float 4s ease-in-out infinite;
 }
 
-/* 🔥 DIFFERENT SIZE PER CORNER */
-.heart {
-  top: 20px;
-  left: 20px;
-  width: 160px;
-}
-
-.date {
-  top: 20px;
-  right: 20px;
-  width: 140px;
-}
-
-.teddy {
-  bottom: 20px;
-  left: 20px;
-  width: 190px;
-}
-
-.plane {
-  bottom: 20px;
-  right: 20px;
-  width: 170px;
-}
-
+.heart { top: 20px; left: 20px; width: 160px; }
+.date { top: 20px; right: 20px; width: 140px; }
+.teddy { bottom: 20px; left: 20px; width: 190px; }
+.plane { bottom: 20px; right: 20px; width: 170px; }
 
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
 
@@ -68,11 +46,11 @@ body {
 
 .couple {
   width: 280px;
-  animation: zoom 1.5s ease;
+  animation: zoom 1.2s ease;
 }
 
 @keyframes zoom {
-  from { transform: scale(0.7); }
+  from { transform: scale(0.8); }
   to { transform: scale(1); }
 }
 
@@ -83,35 +61,31 @@ body {
 
 .question {
   color: #9c27b0;
-  margin: 10px 0 20px;
+  margin: 10px 0 25px;
+}
+
+/* Buttons Wrapper */
+.buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  transition: all 0.4s ease;
 }
 
 /* Buttons */
-.buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
 button {
- padding: 15px 25px;
+  padding: 15px 25px;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
   font-size: 16px;
-  transition: transform 0.35s ease, 
-              box-shadow 0.35s ease, 
-              background 0.3s ease;
+  transition: all 0.35s ease;
 }
 
 .yes {
   background: #ff4081;
   color: white;
-  box-shadow: 0 8px 20px rgba(255, 64, 129, 0.4);
-}
-
-.yes:hover {
-  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
 }
 
 .no {
@@ -119,36 +93,21 @@ button {
   color: #444;
 }
 
-.no:hover {
-  background: #f5c6d6;
-}
-/* YES & NO Pages */
-.yes-page, .no-page {
-  background: linear-gradient(#ffe6f0, #fff);
-}
-
-.big-love {
-  color: #e91e63;
-  font-size: 48px;
-}
-
-.romantic-text {
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-/* ❤️ HEART RAIN EFFECT (YES PAGE) */
-.heart-rain {
+/* YES FULLSCREEN MODE */
+.yes.fullscreen {
   position: fixed;
-  top: -10px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  font-size: 42px;
   z-index: 9999;
-  animation: fall linear forwards;
-  pointer-events: none;
+  animation: expandFull 0.6s ease forwards;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
+@keyframes expandFull {
+  from { transform: scale(1); }
+  to { transform: scale(1); }
 }
+
