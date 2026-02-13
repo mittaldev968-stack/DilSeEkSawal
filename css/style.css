@@ -94,32 +94,34 @@ body {
 }
 
 button {
-  padding: 15px 25px;
+ padding: 15px 25px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   font-size: 16px;
-  transition: 0.3s;
+  transition: transform 0.35s ease, 
+              box-shadow 0.35s ease, 
+              background 0.3s ease;
 }
 
 .yes {
   background: #ff4081;
   color: white;
+  box-shadow: 0 8px 20px rgba(255, 64, 129, 0.4);
 }
 
 .yes:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #ff4081;
+  transform: scale(1.08);
 }
 
 .no {
-  background: #ccc;
+  background: #ddd;
+  color: #444;
 }
 
 .no:hover {
-  transform: translateX(10px);
+  background: #f5c6d6;
 }
-
 /* YES & NO Pages */
 .yes-page, .no-page {
   background: linear-gradient(#ffe6f0, #fff);
