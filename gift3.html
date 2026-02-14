@@ -26,8 +26,9 @@ body {
 }
 
 .rose-container img {
-  width: 280px;
+  width: 380px;   /* 🔥 Increased Size */
   animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
 }
 
 @keyframes float {
@@ -49,10 +50,10 @@ body {
   animation: fadeIn 1.5s ease;
 }
 
-.quote:nth-child(2) { top: 15%; left: 10%; }
-.quote:nth-child(3) { top: 20%; right: 10%; }
-.quote:nth-child(4) { bottom: 18%; left: 12%; }
-.quote:nth-child(5) { bottom: 15%; right: 12%; }
+.quote:nth-child(3) { top: 15%; left: 10%; }
+.quote:nth-child(4) { top: 20%; right: 10%; }
+.quote:nth-child(5) { bottom: 18%; left: 12%; }
+.quote:nth-child(6) { bottom: 15%; right: 12%; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.8); }
@@ -80,6 +81,11 @@ body {
 
 <body>
 
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="assets/music/love.mp3" type="audio/mpeg">
+</audio>
+
 <!-- Rose Bouquet -->
 <div class="rose-container">
   <img src="assets/images/rose.png" alt="Rose Bouquet">
@@ -92,6 +98,12 @@ body {
 <div class="quote">You will forever be my only option 🌹</div>
 
 <script>
+
+/* Ensure music plays after first interaction (browser policy fix) */
+const music = document.getElementById("bgMusic");
+document.addEventListener("click", () => {
+  music.play();
+});
 
 /* Floating Rose Petals */
 function createPetal() {
