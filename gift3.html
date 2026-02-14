@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forever & Always 🌹</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffd1e8);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Center Rose */
+.rose-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.rose-container img {
+  width: 280px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Quotes */
+.quote {
+  position: absolute;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  font-size: 16px;
+  max-width: 240px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.quote:nth-child(2) { top: 15%; left: 10%; }
+.quote:nth-child(3) { top: 20%; right: 10%; }
+.quote:nth-child(4) { bottom: 18%; left: 12%; }
+.quote:nth-child(5) { bottom: 15%; right: 12%; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Floating Petals */
+.petal {
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Rose Bouquet -->
+<div class="rose-container">
+  <img src="assets/images/rose.png" alt="Rose Bouquet">
+</div>
+
+<!-- Quote Boxes -->
+<div class="quote">I will love you always, no matter what 💖</div>
+<div class="quote">You are the best part of my life 🌸</div>
+<div class="quote">I can't imagine my life without you 💕</div>
+<div class="quote">You will forever be my only option 🌹</div>
+
+<script>
+
+/* Floating Rose Petals */
+function createPetal() {
+  const petal = document.createElement("div");
+  petal.classList.add("petal");
+  petal.innerHTML = "🌹";
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (Math.random() * 4 + 3) + "s";
+  petal.style.fontSize = (Math.random() * 15 + 20) + "px";
+
+  document.body.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 7000);
+}
+
+setInterval(createPetal, 300);
+
+</script>
+
+</body>
+</html>
