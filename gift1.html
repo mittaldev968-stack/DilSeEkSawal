@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your First Gift 💝</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#ffe6f2,#ffd1e8,#ffc2dd);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+/* Soft Glow */
+body::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle,#ffb6d9,transparent 70%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+}
+
+/* Floating Hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation: floatUp 8s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes floatUp{
+  from{ transform: translateY(100vh) rotate(0deg);}
+  to{ transform: translateY(-10vh) rotate(360deg);}
+}
+
+/* Main Box */
+.container{
+  position:relative;
+  z-index:2;
+  max-width:600px;
+  padding:40px;
+}
+
+h1{
+  font-family:'Pacifico', cursive;
+  font-size:48px;
+  color:#ff2e74;
+  margin-bottom:20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.subtext{
+  font-size:20px;
+  margin-bottom:30px;
+  animation: fadeIn 2s ease;
+}
+
+/* Buttons */
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  margin:10px;
+}
+
+.primary{
+  background:#ff2e74;
+  color:white;
+  box-shadow:0 8px 20px rgba(255,46,116,0.4);
+}
+
+.primary:hover{
+  transform:scale(1.1);
+}
+
+.secondary{
+  background:white;
+  color:#ff2e74;
+  border:2px solid #ff2e74;
+}
+
+.secondary:hover{
+  transform:scale(1.05);
+}
+
+/* Fade Animation */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Cute Corner Elements */
+.corner{
+  position:absolute;
+  width:120px;
+  opacity:0.9;
+  animation: floatSide 6s ease-in-out infinite;
+}
+
+.top-left{ top:20px; left:20px;}
+.top-right{ top:20px; right:20px;}
+.bottom-left{ bottom:20px; left:20px;}
+.bottom-right{ bottom:20px; right:20px;}
+
+@keyframes floatSide{
+  0%{ transform:translateY(0);}
+  50%{ transform:translateY(-10px);}
+  100%{ transform:translateY(0);}
+}
+
+/* Bottom Right Navigation Button */
+.next-btn{
+  position:absolute;
+  bottom:30px;
+  right:40px;
+  background:#ff2e74;
+  color:white;
+  padding:14px 30px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:500;
+  box-shadow:0 8px 25px rgba(255,46,116,0.4);
+  transition:0.3s;
+}
+
+.next-btn:hover{
+  transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+  <source src="assets/music/love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Cute Corner Images -->
+<img src="assets/images/heart.png" class="corner top-left">
+<img src="assets/images/plane.png" class="corner bottom-left">
+<img src="assets/images/teddy.png" class="corner bottom-right">
+<img src="assets/images/date.png" class="corner top-right">
+
+<div class="container">
+
+<h1>Your First Gift 💝</h1>
+
+<p class="subtext" id="mainText">
+Your first gift cannot be opened here...
+</p>
+
+<button class="secondary" onclick="showWhy()">Why?</button>
+
+<div id="nextStep" style="display:none;">
+  <p class="subtext">
+    Because I want to see your reaction in person 🥺
+  </p>
+
+  <button class="primary" onclick="finalMessage()">Meet me 💕</button>
+</div>
+
+<div id="finalText" style="display:none;">
+  <p class="subtext">
+    Come find me...  
+    Your real surprise is waiting in my hands ❤️
+  </p>
+</div>
+
+</div>
+
+<!-- Bottom Right Button -->
+<a href="gift2.html" class="next-btn">Click here 💌</a>
+
+<script>
+
+/* WHY BUTTON */
+function showWhy(){
+  document.getElementById("nextStep").style.display="block";
+}
+
+/* FINAL MESSAGE */
+function finalMessage(){
+  document.getElementById("finalText").style.display="block";
+}
+
+/* Floating Hearts Generator */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),8000);
+}
+
+setInterval(createHeart,700);
+
+</script>
+
+</body>
+</html>
