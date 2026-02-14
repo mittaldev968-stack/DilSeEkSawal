@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Words From My Heart 💌</title>
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Google Handwritten Font -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+
+/* Page Background */
+body {
+  background: linear-gradient(to bottom right, #ffe6f0, #fff);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Title Top Left */
+.title {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  font-size: 28px;
+  color: #e91e63;
+  font-weight: bold;
+  font-family: "Comic Sans MS", cursive;
+}
+
+/* Paper Container */
+.letter-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 900px;
+  background: #fffdf8;
+  padding: 50px;
+  border-radius: 6px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  line-height: 1.8;
+  font-size: 20px;
+  font-family: 'Patrick Hand', cursive;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #fffdf8,
+    #fffdf8 28px,
+    #e0e0e0 29px
+  );
+  animation: fadeInLetter 1.5s ease;
+}
+
+/* Fade animation */
+@keyframes fadeInLetter {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Button Bottom Left */
+.next-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #ff4081;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff4081;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="title">Words from my heart 💖</div>
+
+<div class="letter-container">
+To the love of my life, happy Valentine’s Day ❤️  
+
+I just want you to know how insanely special you are to me.  
+You’ve become my favorite part of every single day — the person I look forward to talking to,  
+the one who makes my mood better without even trying.  
+
+With you, everything feels lighter, happier, and more meaningful.  
+I love your smile, your little tantrums, your care, and the way  
+you make me feel like I actually matter.  
+
+Being with you feels safe and exciting at the same time.  
+
+I promise to keep choosing you, supporting you, annoying you,  
+and loving you a little more every day — not just today, but always. ❤️
+</div>
+
+<button class="next-btn" onclick="goNext()">Click here 💌</button>
+
+<script>
+function goNext() {
+  window.location.href = "gift3.html";
+}
+</script>
+
+</body>
+</html>
