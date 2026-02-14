@@ -47,7 +47,7 @@ body::before{
   to{ transform: translateY(-10vh) rotate(360deg);}
 }
 
-/* Main Box */
+/* Main Content */
 .container{
   position:relative;
   z-index:2;
@@ -65,11 +65,10 @@ h1{
 
 .subtext{
   font-size:20px;
-  margin-bottom:30px;
+  margin-bottom:25px;
   animation: fadeIn 2s ease;
 }
 
-/* Buttons */
 button{
   padding:14px 28px;
   border:none;
@@ -100,16 +99,15 @@ button{
   transform:scale(1.05);
 }
 
-/* Fade Animation */
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(20px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-/* Cute Corner Elements */
+/* Corner Elements */
 .corner{
   position:absolute;
-  width:120px;
+  width:110px;
   opacity:0.9;
   animation: floatSide 6s ease-in-out infinite;
 }
@@ -125,11 +123,11 @@ button{
   100%{ transform:translateY(0);}
 }
 
-/* Bottom Right Navigation Button */
+/* Hidden Next Button */
 .next-btn{
   position:absolute;
   bottom:30px;
-  right:40px;
+  right:120px; /* shifted left */
   background:#ff2e74;
   color:white;
   padding:14px 30px;
@@ -137,7 +135,16 @@ button{
   text-decoration:none;
   font-weight:500;
   box-shadow:0 8px 25px rgba(255,46,116,0.4);
-  transition:0.3s;
+  opacity:0;
+  transform:scale(0.7);
+  transition:all 0.5s ease;
+  pointer-events:none;
+}
+
+.next-btn.show{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
 }
 
 .next-btn:hover{
@@ -154,7 +161,7 @@ button{
   <source src="assets/music/love.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Cute Corner Images -->
+<!-- Cute Corners -->
 <img src="assets/images/heart.png" class="corner top-left">
 <img src="assets/images/plane.png" class="corner bottom-left">
 <img src="assets/images/teddy.png" class="corner bottom-right">
@@ -164,7 +171,7 @@ button{
 
 <h1>Your First Gift 💝</h1>
 
-<p class="subtext" id="mainText">
+<p class="subtext">
 Your first gift cannot be opened here...
 </p>
 
@@ -187,22 +194,25 @@ Your first gift cannot be opened here...
 
 </div>
 
-<!-- Bottom Right Button -->
-<a href="gift2.html" class="next-btn">Click here 💌</a>
+<!-- Hidden Navigation Button -->
+<a href="gift2.html" class="next-btn" id="nextButton">
+  Click here 💌
+</a>
 
 <script>
 
-/* WHY BUTTON */
 function showWhy(){
   document.getElementById("nextStep").style.display="block";
 }
 
-/* FINAL MESSAGE */
 function finalMessage(){
   document.getElementById("finalText").style.display="block";
+  
+  // Show the next button smoothly
+  document.getElementById("nextButton").classList.add("show");
 }
 
-/* Floating Hearts Generator */
+/* Floating Hearts */
 function createHeart(){
   const heart=document.createElement("div");
   heart.classList.add("heart");
