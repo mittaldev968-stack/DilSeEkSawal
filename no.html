@@ -1,24 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wrong Choice 😌</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Now No Turning Back 💔</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Comic Sans MS", cursive;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffd6e8, #ffeaf5);
+  animation: fadeIn 1.5s ease;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container {
+  animation: floatUp 1.2s ease;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h1 {
+  font-size: 48px;
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: #ff4081;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff4081;
+}
+
+/* Floating tiny hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-10vh);
+  }
+}
+
+</style>
 </head>
-<body class="no-page">
 
-<audio autoplay loop>
-  <source src="assets/music/love.mp3" type="audio/mpeg">
-</audio>
+<body>
 
-<div class="center">
-  <h1 class="big-love">Are you sure? 🥺</h1>
-  <p class="romantic-text">
-    Teddy is sad… Plane is returning…  
-    Think again maybe? 😏❤️
+<div class="container">
+  <h1>Now no turning back… 😢💔</h1>
+  <p>
+    Teddy is crying… 🧸💔 <br>
+    The plane already started returning… ✈️ <br>
+    My heart is waiting though… 🥺❤️
   </p>
-  <button class="yes" onclick="location.href='index.html'">GO BACK</button>
+
+  <button onclick="goHome()">Try again please 🥺</button>
 </div>
+
+<script>
+function goHome() {
+  document.body.style.opacity = "0";
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 600);
+}
+
+/* Cute floating hearts generator */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 800);
+</script>
 
 </body>
 </html>
