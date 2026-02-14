@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>She Said YES 💕</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>She Said YES 💕</title>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* Center block spacing */
+.extra-text {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #e91e63;
+  animation: fadeUp 1.5s ease;
+}
+
+/* Gift buttons layout */
+.gifts {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  animation: fadeUp 2s ease;
+}
+
+/* Gift button style */
+.gift-btn {
+  padding: 12px 28px;
+  border-radius: 40px;
+  border: none;
+  background: #ff4081;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gift-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px #ff4081;
+}
+
+/* smooth fade up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
 </head>
+
 <body class="yes-page">
 
 <audio autoplay loop>
@@ -13,11 +58,25 @@
 
 <div class="center">
   <h1 class="big-love">I knew it 😍</h1>
+
   <p class="romantic-text">
-    You just made my heart the happiest 💖  
+    You just made my heart the happiest 💖 <br>
     This is the beginning of many memories together ✨
   </p>
+
+  <!-- NEW TEXT -->
+  <div class="extra-text">
+    I made all these for you hehe 💕
+  </div>
+
+  <!-- GIFT BUTTONS -->
+  <div class="gifts">
+    <button class="gift-btn" onclick="goGift1()">Gift 1 🎁</button>
+    <button class="gift-btn" onclick="goGift2()">Gift 2 💌</button>
+    <button class="gift-btn" onclick="goGift3()">Gift 3 🌹</button>
+  </div>
 </div>
+
 <script>
   function createHeart() {
     const heart = document.createElement("div");
@@ -36,7 +95,20 @@
   }
 
   setInterval(createHeart, 200);
+
+  function goGift1() {
+    window.location.href = "gift1.html";
+  }
+
+  function goGift2() {
+    window.location.href = "gift2.html";
+  }
+
+  function goGift3() {
+    window.location.href = "gift3.html";
+  }
 </script>
 
 </body>
 </html>
+
