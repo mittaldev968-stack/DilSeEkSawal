@@ -8,29 +8,21 @@
 
 <style>
 
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   min-height:100vh;
   background: linear-gradient(135deg,#ffe6f2,#ffd1e8,#ffc2dd);
   font-family:'Patrick Hand', cursive;
-  overflow:hidden;
+  overflow-x:hidden;
   position:relative;
 }
 
-/* Soft Glow Background */
-body::before{
-  content:"";
-  position:absolute;
-  width:700px;
-  height:700px;
-  background: radial-gradient(circle,#ffb6d9,transparent 70%);
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:0;
-}
-
-/* Title */
+/* ===== TITLE ===== */
 .title{
   position:absolute;
   top:40px;
@@ -38,77 +30,43 @@ body::before{
   font-family:'Pacifico', cursive;
   font-size:32px;
   color:#e91e63;
-  z-index:2;
+  z-index:3;
 }
 
-/* Paper Style Letter */
+/* ===== CENTER WRAPPER ===== */
+.wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  padding-top:80px;
+}
+
+/* ===== LETTER PAPER ===== */
 .letter{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
   width:65%;
   max-width:800px;
-  padding:50px;
+  padding:60px 50px;
   background:#fffdf8;
-  border-radius:8px;
+  border-radius:10px;
   box-shadow:0 30px 60px rgba(0,0,0,0.25);
-  line-height:1.9;
+  line-height:2;
   font-size:22px;
-  z-index:2;
   background-image: repeating-linear-gradient(
     to bottom,
     #fffdf8,
-    #fffdf8 32px,
-    #e6e6e6 33px
+    #fffdf8 34px,
+    #e8e8e8 35px
   );
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 1.4s ease;
+  z-index:2;
 }
 
-/* Shooting Star */
-.star{
-  position:absolute;
-  width:4px;
-  height:4px;
-  background:white;
-  border-radius:50%;
-  box-shadow:0 0 10px white;
-  animation: shoot 2s linear infinite;
-}
-
-@keyframes shoot{
-  0%{
-    top:10%;
-    left:-10%;
-    opacity:1;
-    transform:translate(0,0);
-  }
-  100%{
-    top:60%;
-    left:110%;
-    opacity:0;
-    transform:translate(400px,200px);
-  }
-}
-
-/* Floating Hearts */
-.heart{
-  position:absolute;
-  font-size:18px;
-  animation: floatUp 8s linear infinite;
-  opacity:0.5;
-}
-
-@keyframes floatUp{
-  from{ transform:translateY(100vh); }
-  to{ transform:translateY(-10vh); }
-}
-
-/* Button Bottom Right */
+/* ===== BUTTON ===== */
 .next-btn{
   position:absolute;
   bottom:40px;
-  right:80px;
+  right:60px;
   padding:15px 35px;
   border:none;
   border-radius:40px;
@@ -118,17 +76,56 @@ body::before{
   cursor:pointer;
   box-shadow:0 10px 25px rgba(0,0,0,0.25);
   transition:0.3s;
-  z-index:2;
+  z-index:3;
 }
 
 .next-btn:hover{
   transform:scale(1.1);
 }
 
-/* Fade */
+/* ===== SHOOTING STAR ===== */
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  box-shadow:0 0 10px white;
+  animation:shoot 3s linear infinite;
+  z-index:1;
+}
+
+@keyframes shoot{
+  0%{
+    top:10%;
+    left:-5%;
+    opacity:1;
+  }
+  100%{
+    top:70%;
+    left:110%;
+    opacity:0;
+    transform:translate(400px,200px);
+  }
+}
+
+/* ===== FLOATING HEARTS ===== */
+.heart{
+  position:absolute;
+  font-size:18px;
+  opacity:0.5;
+  animation:floatUp 8s linear infinite;
+}
+
+@keyframes floatUp{
+  from{ transform:translateY(100vh); }
+  to{ transform:translateY(-10vh); }
+}
+
+/* ===== FADE ===== */
 @keyframes fadeIn{
-  from{ opacity:0; transform:translate(-50%,-40%); }
-  to{ opacity:1; transform:translate(-50%,-50%); }
+  from{ opacity:0; transform:translateY(20px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
 </style>
@@ -136,42 +133,42 @@ body::before{
 
 <body>
 
-<!-- 🎵 Background Music -->
+<!-- 🎵 MUSIC -->
 <audio autoplay loop>
   <source src="assets/music/love.mp3" type="audio/mpeg">
 </audio>
 
 <div class="title">Words from my heart 💖</div>
 
-<div class="letter">
-To the love of my life,<br><br>
+<div class="wrapper">
+  <div class="letter">
+    To the love of my life,<br><br>
 
-you make my life so meaningful<br>
-and I am so lucky to have you<br>
-as my valentine this year. I love<br>
-you wholeheartedly and I can’t<br>
-wait to continue loving you for<br>
-the rest of my life. I know I tell<br>
-you this everyday but you are<br>
-literally the most beautiful girl<br>
-I know. Anyways, I love you<br><br>
+    you make my life so meaningful<br>
+    and I am so lucky to have you<br>
+    as my valentine this year. I love<br>
+    you wholeheartedly and I can’t<br>
+    wait to continue loving you for<br>
+    the rest of my life. I know I tell<br>
+    you this everyday but you are<br>
+    literally the most beautiful girl<br>
+    I know. Anyways, I love you<br><br>
 
-Always, Forever 💕
+    Always, Forever 💕
+  </div>
 </div>
 
 <button class="next-btn" onclick="goNext()">Click here 💌</button>
 
-<!-- Shooting Star -->
 <div class="star"></div>
 
 <script>
 
-/* Go to Gift 3 */
 function goNext(){
   window.location.href="gift3.html";
 }
 
-/* Floating Hearts Generator */
+/* Floating Hearts */
 function createHeart(){
   const heart=document.createElement("div");
   heart.classList.add("heart");
@@ -188,3 +185,4 @@ setInterval(createHeart,1500);
 
 </body>
 </html>
+
